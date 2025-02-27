@@ -75,17 +75,19 @@ First step we can try to share the common module files is to move them to a `com
 
 e.g. folder structure with addition of `commmonModules` folder:
 ```
+
 ```
 
 Now, we'll have to import these via relative file paths:
 
 e.g. `nix/darwin/host1/default.nix`
 nix```
+{ inputs, ... }:
 {
   system = "aarch64-darwin";
   modules = [
-    inputs.self.nixosModules.networking
-    ../../commonosModules/example.nix
+    inputs.self.darwinModules.module-a
+    ../../commonosModules/module-c.nix
     ./configuration.nix
   ];
 }
@@ -93,11 +95,12 @@ nix```
 
 e.g. `nix/nixos/host2/default.nix`
 nix```
+{ inputs, ... }:
 {
   system = "x86_64-linux";
   modules = [
-    inputs.self.nixosModules.ssh
-    ../../commonosModules/example.nix
+    inputs.self.nixosModules.module-b
+    ../../commonosModules/module-c.nix
     ./configuration.nix
   ];
 }
@@ -113,15 +116,13 @@ nix```
 
 ## Solution 2
 The above is an ok solution.  However, I don't like maintaining relative paths if I need to move folders and files around.  Also, I prefer to use the same `inputs.self.<modules_folder>.<module_name>`.
-Hence, I created a flakelight module to support this.
+Hence, I created a simple flakelight module to support using the `inputs.self...` import pattern.
+We can add the flakelight module like so:
 
 `flake.nix`
-TODO: finish this readme file
 ```
-
   
 ```
 
-
-that adds a `commonosModules` folder, for nix modules that can be shared
-between `darwin` and `nixos` configurations.
+Now we can add `commonosModules` folder, for nix modules that can be shared
+between `darwin` and `nixos` configurations (in this case, module-c.nix):
