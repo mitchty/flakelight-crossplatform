@@ -1,12 +1,11 @@
 {
-  description = "A basic starter flake for creating a flakelight module";
+  description = "A commonos module for flakelight";
   inputs.flakelight.url = "github:accelbread/flakelight";
 
   outputs =
-    { flakelight, ... }@inputs:
+    { flakelight, ... }:
     flakelight ./. {
-      inherit inputs;
       imports = [ flakelight.flakelightModules.flakelightModule ];
-      flakelightModule = ./flakelight-my-module;
+      flakelightModule = ./flakelight-commonos;
     };
 }
