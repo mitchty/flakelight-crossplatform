@@ -6,6 +6,6 @@
     { flakelight, ... }:
     flakelight ./. {
       imports = [ flakelight.flakelightModules.flakelightModule ];
-      flakelightModule = ./flakelight-commonos.nix;
+      flakelightModule = ./flakelight-crossplatform.nix;
     };
 }

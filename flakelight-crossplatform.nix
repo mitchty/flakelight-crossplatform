@@ -12,24 +12,24 @@ let
 in
 {
   options = {
-    commonosModule = mkOption {
+    crossplatformModule = mkOption {
       type = nullable module;
       default = null;
     };
 
-    commonosModules = mkOption {
+    crossplatformModules = mkOption {
       type = optCallWith moduleArgs (lazyAttrsOf module);
       default = { };
     };
   };
 
   config = mkMerge [
-    (mkIf (config.commonosModule != null) {
-      commonosModules.default = config.commonosModule;
+    (mkIf (config.crossplatformModule != null) {
+      crossplatformModules.default = config.crossplatformModule;
     })
 
-    (mkIf (config.commonosModules != { }) {
-      outputs = { inherit (config) commonosModules; };
+    (mkIf (config.crossplatformModules != { }) {
+      outputs = { inherit (config) crossplatformModules; };
     })
   ];
 }
