@@ -1,3 +1,4 @@
+# WIP
 # Flakelight-commonos
 ## What is this?
 Simple flakelight module for adding common modules for `darwin` and `nixos` systems.
@@ -37,13 +38,13 @@ e.g. folder structure with duplicate `module-c`
 ```
 
 `flake.nix`
-nix```
+```
 
 ```
 
 
 `nix/darwin/host1/default.nix`
-nix```
+```
 { inputs, ... }:
 {
   system = "aarch64-darwin";
@@ -56,7 +57,7 @@ nix```
 ```
 
 `nix/nixos/host2/default.nix`
-nix```
+```
 { inputs, ... }:
 {
   system = "x86_64-linux";
@@ -81,7 +82,7 @@ e.g. folder structure with addition of `commmonModules` folder:
 Now, we'll have to import these via relative file paths:
 
 e.g. `nix/darwin/host1/default.nix`
-nix```
+```
 { inputs, ... }:
 {
   system = "aarch64-darwin";
@@ -94,7 +95,7 @@ nix```
 ```
 
 e.g. `nix/nixos/host2/default.nix`
-nix```
+```
 { inputs, ... }:
 {
   system = "x86_64-linux";
@@ -114,7 +115,7 @@ nix```
 - Not as consistent with pattern of using `inputs.self...` for including re-usable modules.
 
 
-## Solution 2
+~~## Potential Solution 2
 The above is an ok solution.  However, I don't like maintaining relative paths if I need to move folders and files around.  Also, I prefer to use the same `inputs.self.<modules_folder>.<module_name>`.
 Hence, I created a simple flakelight module to support using the `inputs.self...` import pattern.
 We can add the flakelight module like so:
@@ -125,4 +126,4 @@ We can add the flakelight module like so:
 ```
 
 Now we can add `commonosModules` folder, for nix modules that can be shared
-between `darwin` and `nixos` configurations (in this case, module-c.nix):
+between `darwin` and `nixos` configurations (in this case, module-c.nix):~~
