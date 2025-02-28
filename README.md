@@ -12,23 +12,23 @@ Simple flakelight module for adding cross-platform modules for `darwin` and `nix
     flakelight.url = "github:accelbread/flakelight";
     flakelight-darwin.url = "github:cmacrae/flakelight-darwin";
     flakelight-crossplatform.url = "github:rencire/flakelight-crossplatform";
-  }
+  };
 
   outputs =
     {
       flakelight,
-      flakelight-crossplatform,
       flakelight-darwin,
+      flakelight-crossplatform,
       ...
     }@inputs:
     flakelight ./. {
       inherit inputs;
       imports = [
-        flakelight-crossplatform.flakelightModules.default
         flakelight-darwin.flakelightModules.default
+        flakelight-crossplatform.flakelightModules.default
       ];
-    }
- }
+    };
+}
 
 ```
 
@@ -221,23 +221,23 @@ We'll update the `flake.nix` to include our flakelight-crossplatform module:
     flakelight.url = "github:accelbread/flakelight";
     flakelight-darwin.url = "github:cmacrae/flakelight-darwin";
     flakelight-crossplatform.url = "github:rencire/flakelight-crossplatform"; # Added
-  }
+  };
 
   outputs =
     {
       flakelight,
+      flakelight-darwin,
       flakelight-crossplatform, # Added
-      flakelight-darwin, 
       ...
     }@inputs:
     flakelight ./. {
       inherit inputs;
       imports = [
-        flakelight-crossplatform.flakelightModules.default  # Added 
-        flakelight-darwin.flakelightModules.default 
+        flakelight-darwin.flakelightModules.default
+        flakelight-crossplatform.flakelightModules.default # Added
       ];
-    }
- }
+    };
+}
 ```
 
 Now we can update the host configurations:
