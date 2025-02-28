@@ -249,7 +249,7 @@ Now we can update the host configurations:
   system = "aarch64-darwin";
   modules = [
     inputs.self.darwinModules.module-a
-    ../../crossplatformModules/module-c.nix
+    inputs.self.crossplatformModules.module-c
     ./configuration.nix
   ];
 }
@@ -262,7 +262,7 @@ Now we can update the host configurations:
   system = "x86_64-linux";
   modules = [
     inputs.self.nixosModules.module-b
-    ../../crossplatformModules/module-c.nix
+    inputs.self.crossplatformModules.module-c
     ./configuration.nix
   ];
 }

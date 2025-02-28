@@ -7,14 +7,109 @@
       "locked": {
         "lastModified": 1740400913,
         "narHash": "sha256-LjY3VwJ9+jK+LpqDkZE+PVVcXItLD9JJUEHwlW/+9+8=",
-        "owner": "nix-community",
+        "owner": "accelbread",
         "repo": "flakelight",
         "rev": "134d3e81c01f37417178c8746340d8d2ccb62ff7",
         "type": "github"
       },
       "original": {
+        "owner": "accelbread",
+        "repo": "flakelight",
+        "type": "github"
+      }
+    },
+    "flakelight-crossplatform": {
+      "inputs": {
+        "flakelight": "flakelight_2"
+      },
+      "locked": {
+        "lastModified": 1740731939,
+        "narHash": "sha256-KY+o/yYT1xzQq0qtULH/THKitbMB4zIuGFmxnrR6t7o=",
+        "owner": "rencire",
+        "repo": "flakelight-crossplatform",
+        "rev": "4ab5661840f2c0d60ae70a4473b36d532d3ef845",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rencire",
+        "repo": "flakelight-crossplatform",
+        "type": "github"
+      }
+    },
+    "flakelight-darwin": {
+      "inputs": {
+        "flakelight": "flakelight_3",
+        "nix-darwin": "nix-darwin"
+      },
+      "locked": {
+        "lastModified": 1725969919,
+        "narHash": "sha256-2vit931wouI3W87ZjJe2WLRHRvOjwJpgOpSsvNJk03Y=",
+        "owner": "cmacrae",
+        "repo": "flakelight-darwin",
+        "rev": "3e211e1cf6e4b08e1669dd96db911809c027f273",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cmacrae",
+        "repo": "flakelight-darwin",
+        "type": "github"
+      }
+    },
+    "flakelight_2": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1740400913,
+        "narHash": "sha256-LjY3VwJ9+jK+LpqDkZE+PVVcXItLD9JJUEHwlW/+9+8=",
+        "owner": "accelbread",
+        "repo": "flakelight",
+        "rev": "134d3e81c01f37417178c8746340d8d2ccb62ff7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "accelbread",
+        "repo": "flakelight",
+        "type": "github"
+      }
+    },
+    "flakelight_3": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1725885544,
+        "narHash": "sha256-+ZS8LfVQgrHG67I14ao9BBREKoJOMNXXjEC8s99p4gg=",
         "owner": "nix-community",
         "repo": "flakelight",
+        "rev": "44f8d0f5ea21cca24bca5fb5141d8ef1efe24109",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "flakelight",
+        "type": "github"
+      }
+    },
+    "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "flakelight-darwin",
+          "flakelight",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1725628909,
+        "narHash": "sha256-xI0OSqPHcs/c/utJsU0Zvcp1VhejMI9mgwr68uHHlPs=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "76559183801030451e200c90a1627c1d82bb4910",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
         "type": "github"
       }
     },
@@ -34,9 +129,43 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1740126099,
+        "narHash": "sha256-ozoOtE2hGsqh4XkTJFsrTkNxkRgShxpQxDynaPZUGxk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "32fb99ba93fea2798be0e997ea331dd78167f814",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1725634671,
+        "narHash": "sha256-v3rIhsJBOMLR8e/RNWxr828tB+WywYIoajrZKFM+0Gg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "574d1eac1c200690e27b8eb4e24887f8df7ac27c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
-        "flakelight": "flakelight"
+        "flakelight": "flakelight",
+        "flakelight-crossplatform": "flakelight-crossplatform",
+        "flakelight-darwin": "flakelight-darwin"
       }
     }
   },

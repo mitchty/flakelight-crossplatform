@@ -3,7 +3,7 @@
   system = "aarch64-darwin";
   modules = [
     inputs.self.darwinModules.module-a
-    ../../commonosModules/module-c.nix
+    inputs.self.crossplatformModules.module-c
     ./configuration.nix
   ];
 }
