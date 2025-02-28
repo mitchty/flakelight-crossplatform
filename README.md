@@ -114,8 +114,8 @@ e.g. `nix/nixos/host2/default.nix`
 - Have to maintain relative file references
 - Not as consistent with pattern of using `inputs.self...` for including re-usable modules.
 
-
-~~## Potential Solution 2
+< pre>< del>
+## Potential Solution 2
 The above is an ok solution.  However, I don't like maintaining relative paths if I need to move folders and files around.  Also, I prefer to use the same `inputs.self.<modules_folder>.<module_name>`.
 Hence, I created a simple flakelight module to support using the `inputs.self...` import pattern.
 We can add the flakelight module like so:
@@ -126,4 +126,5 @@ We can add the flakelight module like so:
 ```
 
 Now we can add `commonosModules` folder, for nix modules that can be shared
-between `darwin` and `nixos` configurations (in this case, module-c.nix):~~
+between `darwin` and `nixos` configurations (in this case, module-c.nix):
+< /del>< /pre>
