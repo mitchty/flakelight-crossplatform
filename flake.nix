@@ -5,7 +5,7 @@
   outputs =
     { flakelight, ... }:
     flakelight ./. {
-      imports = [ flakelight.flakelightModules.flakelightModule ];
+      imports = [ flakelight.flakelightModules.extendFlakelight ];
       flakelightModule = ./flakelight-crossplatform.nix;
     };
 }
